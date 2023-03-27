@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>JS EXAM</title>
+  </head>
+  <body class="bg-black text-white">
+
+
+    <nav class="position-fixed z-2">
+      <div class="links d-flex ">
+        <div id="list" class=" bg-black vh-100">
+          <ul class="list mt-5 ">
+            <li onclick="getAllMovis()" class="list-unstyled"><a
+                class="text-white fs-5 my-4 d-block " href="#">Now playing</a></li>
+            <li onclick="getPopularMovis()" class="list-unstyled"><a
+                class="text-white fs-5 my-4 d-block " href="#">Popular</a></li>
+            <li onclick="getTopRatedMovis()" class="list-unstyled"><a
+                class="text-white fs-5 my-4 d-block" href="#">Top Rated</a></li>
+            <li onclick="getTrendingMovis()" class="list-unstyled"><a
+                class="text-white fs-5 my-4 d-block" href="#">Trending</a></li>
+            <li onclick="getUpcomingMovis()" class="list-unstyled"><a
+                class="text-white fs-5 my-4 d-block" href="#">Upcoming</a></li>
+            <li onclick="" class="list-unstyled"><a class="text-white fs-4 my-5
+                d-block" href="#contact">Contact Us</a></li>
+          </ul>
+
+        </div>
+        <div id="openlist" class="d-flex align-items-center
+          justify-content-center bg-white ">
+          <div class="icon bg-white position-relative ">
+            <div class="strip-header-nav" style="left: 0px;">
+
+              <div class="strip-logo">
+                <img src="https://routeegypt.com/exam/images/logo.png">
+              </div>
+              <div class="strip-toggel-menu">
+                <i class="fa fa-align-justify"></i>
+              </div>
+
+              <div class="strip-social-icon">
+                <div class="strip-lang">
+                  <span>
+                    <i class="fas fa-globe"></i>
+                  </span>
+                </div>
+                <!-- <div class="strip-search">
+                    <span>
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </div> -->
+                <div class="strip-share">
+                  <span>
+                    <i class="fas fa-share-alt"></i>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+
+
+    <section id="rowForInput" class="pt-5">
+      <div class="container w-75 myM">
+        <div class="row">
+          <div class="col-md-6"><input onkeyup="searchMovieByName(this.value)"
+              id="allMovies" class="form-control mb-5 " placeholder="get movies
+              by word...">
+          </div>
+          <div maxlength="1" class="col-md-6"><input
+              onkeyup="searchByFLetter(this.value)" class="form-control "
+              id="word" placeholder="search...">
+          </div>
+
+        </div>
+      </div>
+      <section class="container text-center ">
+
+        <div class="row" id="res">
+
+
+        </div>
+
+
+      </section>
+
+      <section class="container text-center my-1 py-2 ">
+
+        <div class="row" id="rowData">
+          <div class="col-md-6 col-lg-4 my-3 myM shadow">
+            <div class="movie shadow rounded position-relative">
+              <div class="post">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/gOnmaxHo0412UVr1QM5Nekv1xPi.jpg"
+                  class="img-fluid rounded">
+                <div class="layer d-flex align-items-center ">
+                  <div class="info p-0">
+
+                    <h2>Cocaine Bear</h2>
+                    <p>Inspired by a true story, an oddball group of cops,
+                      criminals, tourists and teens converge in a Georgia forest
+                      where a 500-pound black bear goes on a murderous rampage
+                      after unintentionally ingesting cocaine.</p>
+                    <p>rate: 6.5</p>
+                    <p>2023-02-22</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </section>
+
+
+        </section>
+        <section id="contact" class="container myM w-75 mx-auto my-5 ">
+          <h2 class="text-light my-5">ContacUs...</h2>
+          <form id="firstForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" name="name" type="text" placeholder="Enter Your Name">
+                  <div class="alert alert-danger d-none alerts" id="namealert"
+                    role="alert">
+                    Your Name is not valid
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" type="email" name="email" placeholder="Enter Email">
+                  <div class="alert alert-danger d-none alerts" id="emailalert" role="alert">
+                    Please Enter valid email
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" name="phone" placeholder="Enter phone">
+                  <div class="alert alert-danger d-none alerts" id="phonealert" role="alert">
+                    entre valid phone
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" name="age" placeholder="Enter Age">
+                  <div class="alert alert-danger d-none alerts" id="agealert" role="alert"
+                    style="display: none;">
+                    entre valid Age
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" type="password" name="password"
+                    placeholder="Enter Password">
+                  <div class="alert alert-danger d-none alerts" id="passwordalert"
+                    role="alert">
+                    entre valid password *Minimum eight characters, at least one
+                    letter and one number:*
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" type="password" id="rePassword"
+                    placeholder="Enter RePassword">
+                  <div class="alert alert-danger d-none alerts"  id="repasswordalert"
+                    role="alert">
+                    entre valid Repassword
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-outline-danger my-3">Submit</button>
+          </form>
+        </section>
+
+
+
+
+
+        <script src="./js/bootstrap.bundle.min.js"></script>
+        <script src="./js/jquery-3.6.4.min.js"></script>
+        <script src="./js/index.js"></script>
+      </body>
+    </html>
